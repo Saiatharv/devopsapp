@@ -1,6 +1,8 @@
-FROM python:3.9
+FROM eclipse-temurin:17-jdk-jammy
+
 WORKDIR /app
-COPY . .
-RUN pip install -r requirements.txt
-EXPOSE 5000
-CMD ["python", "app.py"]
+
+COPY target/devops-demo-1.0-SNAPSHOT.jar app.jar
+
+CMD ["java", "-jar", "app.jar"]
+
